@@ -1,0 +1,41 @@
+buildscript {
+  // Set repositories to get dependencies from
+  repositories {
+    mavenCentral()
+  }
+  // Set classpath to draw functionality from plugins
+  dependencies {
+    classpath group: "net.carlosgsouza", name: "gradle-console", version: "1.+"
+    classpath group: "org.kt3k.gradle.plugin", name: "coveralls-gradle-plugin", version: "2.+"
+  }
+}
+
+// Helper for gradle to create jar's and more
+apply plugin: "java"
+// Play with code using `gradle console`
+apply plugin: "console"
+// Use jacoco for coverage
+apply plugin: "jacoco"
+// Sends coverage output to coveralls.io
+apply plugin: "com.github.kt3k.coveralls"
+
+sourceSets {
+  // Set main source files location
+  main.java.srcDir "src/main"
+  // Set tests source files location
+  test.java.srcDir "src/test"
+}
+
+jar {
+  // Set Main-Class in manifest when a jar is created
+  manifest.attributes "Main-Class": "dk.itu.osmviewer.Main"
+}
+
+jacocoTestReport {
+  reports {
+    // coveralls plugin depends on xml format output
+    xml.enabled = true
+    html.enabled = true
+  }
+}
+
