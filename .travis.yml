@@ -1,0 +1,13 @@
+language: java
+
+branches:
+  only:
+    - master
+
+jdk:
+  - oraclejdk8
+
+after_success:
+  # Get test coverage and parse to coveralls
+  - gradle jacocoTestReport coveralls
+
