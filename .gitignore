@@ -1,0 +1,15 @@
+#  Java and IDE's #
+build/
+gradlew
+gradlew.bat
+.project
+.classpath
+.idea/
+.gradle/
+
+#  VM Crash Logs  #
+hs_err_pid*
+
+#    Mac OS X     #
+.DS_Store
+
