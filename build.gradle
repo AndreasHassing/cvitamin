@@ -12,12 +12,23 @@ buildscript {
 
 // Helper for gradle to create jar's and more
 apply plugin: "java"
+// Use checkstyle to enforce good programming styles
+apply plugin: "checkstyle"
 // Play with code using `gradle console`
 apply plugin: "console"
-// Use jacoco for coverage
+// Use JaCoCo for coverage
 apply plugin: "jacoco"
 // Sends coverage output to coveralls.io
 apply plugin: "com.github.kt3k.coveralls"
+
+// Set repositories to get checkstyle
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  checkstyle "com.puppycrawl.tools:checkstyle:6.0"
+}
 
 sourceSets {
   // Set main source files location
