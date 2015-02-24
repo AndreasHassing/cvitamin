@@ -1,0 +1,66 @@
+buildscript {
+  // Set repositories to get dependencies from
+  repositories {
+    mavenCentral()
+  }
+  // Set classpath to draw functionality from plugins
+  dependencies {
+    classpath group: "net.carlosgsouza", name: "gradle-console", version: "1.+"
+    classpath group: "org.kt3k.gradle.plugin", name: "coveralls-gradle-plugin", version: "2.+"
+  }
+}
+
+// Helper for gradle to create jar's and more
+apply plugin: "java"
+// Allows us to use `gradle run`
+apply plugin: "application"
+// Use checkstyle to enforce good programming styles
+apply plugin: "checkstyle"
+// Play with code using `gradle console`
+apply plugin: "console"
+// Use JaCoCo for coverage
+apply plugin: "jacoco"
+// Sends coverage output to coveralls.io
+apply plugin: "com.github.kt3k.coveralls"
+
+// Set repositories to get checkstyle
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  checkstyle "com.puppycrawl.tools:checkstyle:6.0"
+
+  compile group: "org.controlsfx", name: "openjfx-dialogs", version: "1.+"
+
+  testCompile group: "junit", name: "junit", version: "4.+"
+}
+
+sourceSets {
+  // Set main source files location
+  main.java.srcDir "src/main"
+  // Set tests source files location
+  test.java.srcDir "src/test"
+}
+
+allprojects {
+  tasks.withType(JavaCompile) {
+    options.compilerArgs << "-Xlint:deprecation" << "-Xlint:unchecked"
+  }
+}
+
+mainClassName = "dk.itu.osmviewer.Main"
+
+jar {
+  // Set Main-Class in manifest when a jar is created
+  manifest.attributes "Main-Class": mainClassName
+}
+
+jacocoTestReport {
+  reports {
+    // coveralls plugin depends on xml format output
+    xml.enabled = true
+    html.enabled = true
+  }
+}
+
