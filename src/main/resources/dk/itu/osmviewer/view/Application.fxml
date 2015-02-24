@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- JavaFX layouts -->
+<?import javafx.scene.layout.VBox?>
+
+<!-- JavaFX controls -->
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.Label?>
+
+<!--<VBox
+  fx:controller="dk.itu.bookie.controller.ApplicationController"
+  xmlns:fx="http://javafx.com/fxml"
+>-->
+<VBox
+  xmlns:fx="http://javafx.com/fxml"
+>
+  <children>
+    <TabPane fx:id="tabs" tabClosingPolicy="UNAVAILABLE">
+      <tabs>
+        <Tab text="Test">
+          <content>
+            <Label text="Hello World!" />
+          </content>
+        </Tab>
+        <Tab text="Test number two!">
+          <content>
+            <Label text="This totally friggin works!" />
+          </content>
+        </Tab>
+      </tabs>
+    </TabPane>
+  </children>
+</VBox>
