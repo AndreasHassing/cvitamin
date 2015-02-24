@@ -5,6 +5,7 @@ gradlew.bat
 .project
 .classpath
 .idea/
+cvitamin.iml # intelliJ
 .gradle/
 
 #  VM Crash Logs  #
