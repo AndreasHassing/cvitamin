@@ -36,3 +36,6 @@ $ git push -u origin feature/add_yeast_to_dough
 Efterfølgende kan der laves et PR (pull request) på branchen igennem github.
 
 Når den nye feature er lagt ud som PR, skal et andet gruppemedlem kigge koden igennem før ændringerne trækkes helt ind i `master`.
+
+---------
+> Andreas Bjørn Hassing Nielsen :balloon:
