@@ -15,7 +15,8 @@ apply plugin: "java"
 // Allows us to use `gradle run`
 apply plugin: "application"
 // Use checkstyle to enforce good programming styles
-apply plugin: "checkstyle"
+// Maybe at some point later in our studies :)
+//apply plugin: "checkstyle"
 // Play with code using `gradle console`
 apply plugin: "console"
 // Use JaCoCo for coverage
