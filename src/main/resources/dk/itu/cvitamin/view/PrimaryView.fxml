@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.itu.cvitamin.controller.PrimaryStageController">
+   <children>
+      <BorderPane layoutX="324.0" layoutY="161.0" prefHeight="660.0" prefWidth="968.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                        <MenuItem fx:id="loadItem" mnemonicParsing="false" onAction="#loadMap" text="Load map" />
+                    <MenuItem mnemonicParsing="false" onAction="#close" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem fx:id="clearItem" mnemonicParsing="false" onAction="#clear" text="Clear canvas" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#about" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+               <contextMenu>
+                  <ContextMenu>
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu>
+            </MenuBar>
+         </top>
+         <bottom>
+            <HBox prefHeight="42.0" prefWidth="968.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ColorPicker fx:id="colourPickerFill" onAction="#changeColor">
+                     <HBox.margin>
+                        <Insets left="20.0" top="7.0" />
+                     </HBox.margin>
+                  </ColorPicker>
+                  <Label text="Building color">
+                     <HBox.margin>
+                        <Insets left="3.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ColorPicker fx:id="colourPickerStroke" onAction="#changeColor">
+                     <HBox.margin>
+                        <Insets left="20.0" top="7.0" />
+                     </HBox.margin>
+                  </ColorPicker>
+                  <Label text="Road color">
+                     <HBox.margin>
+                        <Insets left="3.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <CheckBox fx:id="colourToggle" mnemonicParsing="false" onAction="#toggleColour" text="Toggle Colour">
+                     <HBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </HBox.margin>
+                  </CheckBox>
+                  <Separator maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="31.0" prefWidth="0.0">
+                     <HBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </HBox.margin>
+                  </Separator>
+               </children>
+            </HBox>
+         </bottom>
+         <center>
+            <ScrollPane onMousePressed="#getMouseCoords" onMouseReleased="#pan" onScroll="#zoom" prefViewportHeight="610.0" prefViewportWidth="968.0">
+               <content>
+                  <Canvas fx:id="canvas" height="610.0" width="968.0" BorderPane.alignment="CENTER" />
+               </content>
+            </ScrollPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

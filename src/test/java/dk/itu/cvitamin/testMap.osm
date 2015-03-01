@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<osm version="0.6" generator="CGImap 0.3.3 (29687 thorn-03.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+
+ <!-- Boundings -->
+ <bounds minlat="55.6684900" minlon="12.6035600" maxlat="55.6686300" maxlon="12.6037800"/>
+
+ <!-- Nodes for house -->
+ <node id="731453991" visible="true" version="2" changeset="27726857" timestamp="2014-12-27T10:48:14Z" user="AWSbot" uid="2184056" lat="55.6685790" lon="12.6036200">
+  <tag k="addr:city" v="København S"/>
+  <tag k="addr:country" v="DK"/>
+  <tag k="addr:housenumber" v="31"/>
+  <tag k="addr:postcode" v="2300"/>
+  <tag k="addr:street" v="Vermlandsgade"/>
+  <tag k="osak:identifier" v="0A3F507B224F32B8E0440003BA298018"/>
+  <tag k="osak:municipality_no" v="101"/>
+  <tag k="osak:revision" v="2002-05-30T12:00:00"/>
+  <tag k="osak:street_no" v="8176"/>
+  <tag k="source" v="AWS Web API"/>
+ </node>
+
+ <!-- Nodes for road -->
+ <node id="1483299710" visible="true" version="1" changeset="9674545" timestamp="2011-10-28T08:45:26Z" user="Ernst Poulsen" uid="35273" lat="55.6694652" lon="12.6070581"/>
+ <node id="1927902006" visible="true" version="1" changeset="13212689" timestamp="2012-09-22T20:42:49Z" user="Koldskål" uid="526196" lat="55.6685885" lon="12.6035774"/>
+ <node id="1927902018" visible="true" version="1" changeset="13212689" timestamp="2012-09-22T20:42:49Z" user="Koldskål" uid="526196" lat="55.6685420" lon="12.6036252"/>
+ <node id="1927902046" visible="true" version="1" changeset="13212689" timestamp="2012-09-22T20:42:50Z" user="Koldskål" uid="526196" lat="55.6686144" lon="12.6036630"/>
+ <node id="1927902047" visible="true" version="1" changeset="13212689" timestamp="2012-09-22T20:42:51Z" user="Koldskål" uid="526196" lat="55.6685677" lon="12.6037060"/>
+ <node id="1483299145" visible="true" version="2" changeset="20904438" timestamp="2014-03-04T07:34:47Z" user="Hjart" uid="207581" lat="55.6684317" lon="12.6036127"/>
+ <node id="1483299259" visible="true" version="2" changeset="20904438" timestamp="2014-03-04T07:34:47Z" user="Hjart" uid="207581" lat="55.6685262" lon="12.6037560"/>
+ <node id="1483299421" visible="true" version="2" changeset="20904438" timestamp="2014-03-04T07:34:47Z" user="Hjart" uid="207581" lat="55.6691839" lon="12.6056860"/>
+
+ <!-- Way for building -->
+ <way id="182441177" visible="true" version="1" changeset="13212689" timestamp="2012-09-22T20:42:52Z" user="Koldskål" uid="526196">
+  <nd ref="1927902006"/>
+  <nd ref="1927902018"/>
+  <nd ref="1927902047"/>
+  <nd ref="1927902046"/>
+  <nd ref="1927902006"/>
+  <tag k="building" v="yes"/>
+ </way>
+
+ <!-- Way for road -->
+ <way id="134995340" visible="true" version="2" changeset="20904438" timestamp="2014-03-04T07:34:44Z" user="Hjart" uid="207581">
+  <nd ref="1483299145"/>
+  <nd ref="1483299259"/>
+  <nd ref="1483299421"/>
+  <nd ref="1483299710"/>
+  <tag k="highway" v="service"/>
+ </way>
+</osm>
