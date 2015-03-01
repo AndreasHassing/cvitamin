@@ -1,6 +1,6 @@
 package dk.itu.cvitamin;
 
-import Model.PrimaryModel;
+import dk.itu.cvitamin.model.PrimaryModel;
 import javafx.geometry.BoundingBox;
 import org.junit.*;
 
@@ -11,7 +11,8 @@ public class PrimaryModelTest {
 
     private PrimaryModel model;
     private int NumbOfBuilding = 1;
-    private  int NumbOfRoad = 1;
+    private int NumbOfRoad = 1;
+    private String testFilesLoc = "src/test/java/dk/itu/cvitamin/";
 
     /**
      * Creates a new model object before each test
@@ -19,11 +20,10 @@ public class PrimaryModelTest {
     @Before
     public void setUp() {
         model = new PrimaryModel();
-
     }
 
     /**
-     * Clears model after each test (This might not be necessary as we create a new model each time?) 
+     * Clears model after each test (This might not be necessary as we create a new model each time?)
      */
     @After
     public void tearDown() {
@@ -35,7 +35,7 @@ public class PrimaryModelTest {
      */
     @Test
     public void testReadOSMFile() {
-        File filePath = new File("src/Tests/testMap.osm");
+        File filePath = new File(testFilesLoc + "testMap.osm");
         model.readFile(filePath);
         Assert.assertNotNull("The arraylist with lines is null. Which means the arrayList failed to be created", model.getLines());
 
@@ -45,11 +45,11 @@ public class PrimaryModelTest {
     }
 
     /**
-     * Test to make sure that a Zip file is being read and loaded 
+     * Test to make sure that a Zip file is being read and loaded
      */
     @Test
     public void testReadZipFile() throws Exception {
-        File filePath = new File("src/Tests/testMap.zip");
+        File filePath = new File(testFilesLoc + "testMap.zip");
         model.readFile(filePath);
         Assert.assertNotNull("The arraylist with lines is null. Which means the arrayList failed to be created", model.getLines());
 
@@ -59,7 +59,7 @@ public class PrimaryModelTest {
     }
 
     /**
-     * Test to make sure that a Bin file is being read and loaded 
+     * Test to make sure that a Bin file is being read and loaded
      */
     @Test
     public void testReadBinFile() throws Exception {
@@ -76,23 +76,23 @@ public class PrimaryModelTest {
 
     /**
      * Test to make sure that the last loaded file location is being stored and returned.
-     * This is used whenever we want to load a new map and that start directory is equal to last loaded file location  
+     * This is used whenever we want to load a new map and that start directory is equal to last loaded file location
      */
     @Test
     public void testGetLastUsed() throws Exception {
-        File filePath = new File("src/Tests/testMap.osm");
+        File filePath = new File(testFilesLoc + "testMap.osm");
         model.readFile(filePath);
         Assert.assertNotNull("Last used file returned null. Does the file get loaded?",model.getLastUsed());
     }
 
     /**
-     * Test to make sure that map data is being read from OSM file and stored in propriate arrayLists 
+     * Test to make sure that map data is being read from OSM file and stored in propriate arrayLists
      */
     @Test
     public void testGetLines() throws Exception {
         int numberOfArray = 7;
 
-        File filePath = new File("src/Tests/testMap.osm");
+        File filePath = new File(testFilesLoc + "testMap.osm");
         model.readFile(filePath);
         ArrayList lines = model.getLines();
         Assert.assertNotNull("No ArrayList was created. Check IOhandler class",lines);
@@ -118,7 +118,7 @@ public class PrimaryModelTest {
      */
     @Test
     public void testGetBoundingBox() throws Exception {
-        File filePath = new File("src/Tests/testMap.osm");
+        File filePath = new File(testFilesLoc + "testMap.osm");
         model.readFile(filePath);
         Assert.assertNotNull("No bounding box was returned",model.getBoundingBox());
 
@@ -134,11 +134,10 @@ public class PrimaryModelTest {
      */
     @Test
     public void testClearList() throws Exception {
-        File filePath = new File("src/Tests/testMap.zip");
+        File filePath = new File(testFilesLoc + "testMap.zip");
         model.readFile(filePath);
         Assert.assertNotNull("The arraylist with lines is null. Which means the arrayList failed to be created", model.getLines());
         model.clearList();
         Assert.assertEquals("Failed to clear line list. Check clearList() in primary model",0,model.getLines().size()); //Clear list should empty the arraylist
     }
 }
-
